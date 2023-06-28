@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValveShop.Api", "ValveShop.Api\ValveShop.Api.csproj", "{14F20112-27F8-4C30-861E-E5C3AC82CA07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValveShop.Api", "ValveShop.Api\ValveShop.Api.csproj", "{14F20112-27F8-4C30-861E-E5C3AC82CA07}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7CE6EDBA-42C8-4AE5-91B9-3894CD0AABAA} = {7CE6EDBA-42C8-4AE5-91B9-3894CD0AABAA}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValveShop.Storage", "ValveShop.Storage\ValveShop.Storage.csproj", "{7CE6EDBA-42C8-4AE5-91B9-3894CD0AABAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{14F20112-27F8-4C30-861E-E5C3AC82CA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14F20112-27F8-4C30-861E-E5C3AC82CA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14F20112-27F8-4C30-861E-E5C3AC82CA07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE6EDBA-42C8-4AE5-91B9-3894CD0AABAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE6EDBA-42C8-4AE5-91B9-3894CD0AABAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE6EDBA-42C8-4AE5-91B9-3894CD0AABAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE6EDBA-42C8-4AE5-91B9-3894CD0AABAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
