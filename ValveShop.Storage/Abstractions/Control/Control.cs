@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ValveShop.Storage.Entities.Layout
+namespace ValveShop.Storage.Abstractions.Control
 {
-    public class MenuControl
+    public abstract class Control
     {
-        public MenuControl(int id, string name)
+        public Control(int id, string name, ControlPlacementType placementType) 
         {
             Id = id;
             Name = name;
+            PlacementType = placementType;
         }
         public int Id { get; set; }
         public string Name { get; set; }
-
+        public ControlPlacementType PlacementType { get; set; }
     }
-
 }

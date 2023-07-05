@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ValveShop.Storage.Entities.Layout;
-public class OrderListItem
+namespace ValveShop.Storage.Entities.Models;
+public class OrderItem
 {
-    public OrderListItem(int id, string name, int price, int amount, int discount, int discountPrice, string article)
+    public OrderItem(int id, string name, int price, int amount, int discount, int discountPrice, string article)
     {
         Id = id;
         Name = name;

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ValveShop.Storage.Entities.Layout;
 using ValveShop.Storage.Entities.Layout.Configuration;
+using ValveShop.Storage.Entities.Layout.Controls;
 
 namespace ValveShop.Storage
 {
@@ -10,10 +11,12 @@ namespace ValveShop.Storage
     {
       Database.EnsureCreated();
     }
-    public DbSet<MainMenuItem> MainMenuItems { get; set; }
-    public DbSet<FollowedMenuItem> FollowedMenuItems { get; set; }
-    public DbSet<CheckBoxProductProperty> CheckBoxProductProperties { get; set; }
-    public DbSet<RadioGroupProductProperty> RadioGroupProductProperties { get; set; }
+    public DbSet<CheckBoxControl> CheckBoxControls { get; set; }
+    public DbSet<ComboBoxControl> ComboBoxControls { get; set; }
+    public DbSet<ImageControl> ImageControls { get; set; }
+    public DbSet<LabelControl> LabelControls { get; set; }
+    public DbSet<RadioGroupControl> RadioGroupControls { get; set; }
+    public DbSet<TableControl> TableControls { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

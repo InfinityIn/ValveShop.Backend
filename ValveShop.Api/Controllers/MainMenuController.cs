@@ -6,17 +6,17 @@ namespace webapi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class MenuItemsController : ControllerBase
+public class MainMenuController : ControllerBase
 {
-    private readonly ILogger<MenuItemsController> _logger;
+    private readonly ILogger<MainMenuController> _logger;
 
-    public MenuItemsController(ILogger<MenuItemsController> logger)
+    public MainMenuController(ILogger<MainMenuController> logger)
     {
         _logger = logger;
     }
 
-    [HttpGet(Name = "main-menu-items")]
-    public IEnumerable<MainMenuItem> GetMainMenuItems()
+    [HttpGet(Name = "GetMainMenu")]
+    public IEnumerable<MainMenuItem> GetMainMenu()
     {
         _logger.LogTrace("Получил запрос на список элементов главного меню.");
         return StorageEntitiesExtensions.DefaultMainMenuItems();
