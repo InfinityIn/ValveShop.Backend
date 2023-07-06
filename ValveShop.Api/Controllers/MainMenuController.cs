@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ValveShop.Api.Extensions;
+using ValveShop.Storage.Abstractions.Control;
 using ValveShop.Storage.Entities.Layout;
 
 namespace webapi.Controllers;
@@ -16,7 +17,7 @@ public class MainMenuController : ControllerBase
     }
 
     [HttpGet(Name = "GetMainMenu")]
-    public IEnumerable<MainMenuItem> GetMainMenu()
+    public IEnumerable<Control> GetMainMenu()
     {
         _logger.LogTrace("Получил запрос на список элементов главного меню.");
         return StorageEntitiesExtensions.DefaultMainMenuItems();
