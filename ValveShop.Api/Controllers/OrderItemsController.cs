@@ -17,9 +17,10 @@ public class OrderItemsController : ControllerBase
     }
 
     [HttpGet(Name = "GetOrderItems")]
-    public IEnumerable<Control> Get()
+    public IEnumerable<Control> GetOrderItem()
     {
         _logger.LogTrace("ѕолучил запрос на список элементов управлени€ свойствами продукта.");
-        return StorageEntitiesExtensions.DefaultOrderItems();
+        return (IEnumerable<Control>)StorageEntitiesExtensions.DefaultOrderItems();
+ 
     }
 }
