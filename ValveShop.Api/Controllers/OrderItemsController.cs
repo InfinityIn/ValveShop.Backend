@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ValveShop.Api.Extensions;
 using ValveShop.Storage.Abstractions.Control;
 using ValveShop.Storage.Entities.Layout;
+using ValveShop.Storage.Entities.Models;
 
 namespace webapi.Controllers;
 
@@ -17,10 +18,10 @@ public class OrderItemsController : ControllerBase
     }
 
     [HttpGet(Name = "GetOrderItems")]
-    public IEnumerable<Control> GetOrderItem()
+    public IEnumerable<OrderItem> GetOrderItem()
     {
         _logger.LogTrace("ѕолучил запрос на список элементов управлени€ свойствами продукта.");
-        return (IEnumerable<Control>)StorageEntitiesExtensions.DefaultOrderItems();
+        return StorageEntitiesExtensions.DefaultOrderItems();
  
     }
 }

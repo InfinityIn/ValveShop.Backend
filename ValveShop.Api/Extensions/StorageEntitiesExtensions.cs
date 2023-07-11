@@ -12,9 +12,7 @@ namespace ValveShop.Api.Extensions
         {
             yield return new LabelControl(4, "", ControlPlacementType.MainMenu, "Решетки");
             yield return new LabelControl(6, "", ControlPlacementType.MainMenu, "Клапан");
-            yield return new LabelControl(8, "", ControlPlacementType.MainMenu, "Заслонка" );
-            
-            
+            yield return new LabelControl(8, "", ControlPlacementType.MainMenu, "Заслонка" );                        
         }
 
         public static IEnumerable<Control> DefaultFollowedMenuItems()
