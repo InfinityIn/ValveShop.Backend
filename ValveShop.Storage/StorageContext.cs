@@ -5,9 +5,9 @@ using ValveShop.Storage.Entities.Layout.Controls;
 
 namespace ValveShop.Storage
 {
-    public class StorageContext : DbContext
+    public class ApplicationContext : DbContext
     {
-        public StorageContext()
+        public ApplicationContext()
         {
             Database.EnsureCreated();
         }
