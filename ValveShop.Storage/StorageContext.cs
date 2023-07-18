@@ -5,9 +5,9 @@ using ValveShop.Storage.Entities.Layout.Controls;
 
 namespace ValveShop.Storage
 {
-    public class ApplicationContext : DbContext
+    public class StorageContext : DbContext
     {
-        public ApplicationContext()
+        public StorageContext()
         {
             Database.EnsureCreated();
         }
@@ -20,6 +20,7 @@ namespace ValveShop.Storage
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            
             base.OnModelCreating(builder);
 
             builder.ApplyConfiguration(new CheckBoxControlConfiguration());
