@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using ValveShop.Storage.Entities.Layout;
 using ValveShop.Storage.Entities.Layout.Configuration;
 using ValveShop.Storage.Entities.Layout.Controls;
 
 namespace ValveShop.Storage
 {
-    public class StorageContext : DbContext
+    public class ApplicationContext : DbContext
     {
-        public StorageContext()
+        public ApplicationContext()
         {
             Database.EnsureCreated();
         }
@@ -20,7 +21,7 @@ namespace ValveShop.Storage
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
+
             base.OnModelCreating(builder);
 
             builder.ApplyConfiguration(new CheckBoxControlConfiguration());
@@ -30,5 +31,10 @@ namespace ValveShop.Storage
             builder.ApplyConfiguration(new RadioGroupControlConfiguration());
             builder.ApplyConfiguration(new TableControlConfiguration());
         }
+            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;");
+        }
+    
     }
 }

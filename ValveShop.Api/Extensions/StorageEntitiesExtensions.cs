@@ -1,4 +1,6 @@
-﻿using ValveShop.Storage;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
+using ValveShop.Storage;
 using ValveShop.Storage.Abstractions;
 using ValveShop.Storage.Abstractions.Control;
 using ValveShop.Storage.Entities.Layout;
@@ -9,9 +11,12 @@ namespace ValveShop.Api.Extensions
 {
     public static class StorageEntitiesExtensions
     {
+        private static ImageControl imageControl;
+        private static CheckBoxControl checkBoxControl;
+
         public static IEnumerable<Control> DefaultMainMenuItems()
         {
-            using (StorageContext db = new StorageContext())
+            using (ApplicationContext db = new ApplicationContext())
             {
                 yield return new LabelControl(4, "", ControlPlacementType.MainMenu, "Решетки");
                 yield return new LabelControl(6, "", ControlPlacementType.MainMenu, "Клапан");
@@ -24,7 +29,7 @@ namespace ValveShop.Api.Extensions
 
         public static IEnumerable<Control> DefaultFollowedMenuItems()
         {
-            using (StorageContext db = new StorageContext())
+            using (ApplicationContext db = new ApplicationContext())
             {
                 yield return new LabelControl(7, "", ControlPlacementType.MainMenu, "Решетки");
                 yield return new LabelControl(9, "", ControlPlacementType.MainMenu, "Заслонка");
@@ -36,18 +41,23 @@ namespace ValveShop.Api.Extensions
 
         public static IEnumerable<Control> DefaultProductPropertyItems()
         {
-            using (StorageContext db = new StorageContext())
+            using (ApplicationContext db = new ApplicationContext())
             {
                 yield return new CheckBoxControl(1, "Клапаны", ControlPlacementType.MainMenu, true);
                 yield return new ImageControl(3, "Заслонки", ControlPlacementType.MainMenu, "https://sun1-98.userapi.com/impg/svZCA4HbrqVRhKgSwNCcEom-MZeNuUeEQ-qVAg/vm057EOvJRo.jpg?size=1080x1080&quality=95&sign=ef0a01d8b78e24a4a941b6597af45ed7&type=album");
                 yield return new LabelControl(4, "", ControlPlacementType.MainMenu, "Решетки");
+                db.CheckBoxControls.Add(checkBoxControl);
+                db.ImageControls.Add(imageControl);
 
                 db.SaveChanges();
+
+                var checkBoxControls = db.CheckBoxControls.ToList();
+                var imageControls = db.ImageControls.ToList();
             }
         }
         public static IEnumerable<Control> DefaultMenuControlItems()
         {
-            using (StorageContext db = new StorageContext())
+            using (ApplicationContext db = new ApplicationContext())
             {
                 yield return new CheckBoxControl(1, "Клапаны", ControlPlacementType.MainMenu, true);
                 yield return new ImageControl(3, "Заслонки", ControlPlacementType.MainMenu, "https://sun1-98.userapi.com/impg/svZCA4HbrqVRhKgSwNCcEom-MZeNuUeEQ-qVAg/vm057EOvJRo.jpg?size=1080x1080&quality=95&sign=ef0a01d8b78e24a4a941b6597af45ed7&type=album");
@@ -58,7 +68,7 @@ namespace ValveShop.Api.Extensions
         }
         public static IEnumerable<OrderItem> DefaultOrderItems()
         {
-            using (StorageContext db = new StorageContext())
+            using (ApplicationContext db = new ApplicationContext())
             {
 
                 yield return new OrderItem(1, "Клапан", 500, 2, 10, 20, "011111111111111");
