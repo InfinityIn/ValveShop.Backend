@@ -1,5 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
+using ValveShop.Storage;
 
+var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
+builder.Services.AddDbContext<StorageContext>(options => options.UseNpgsql(configuration.GetConnectionString("DbConnection")));
 // Add services to the container.
 
 builder.Services.AddControllers();
